@@ -16,7 +16,7 @@ function Board() {
 
     // updating Board state
     function handleClick(i) {
-        if(squares[i]) {
+        if(squares[i] || determineWinner(squares)) {
             return;
         }
         const nextSqaures = squares.slice();
@@ -27,10 +27,20 @@ function Board() {
         }
         setSquares(nextSqaures);
         setXIsNext(!xIsNext);
+    };
+
+    // determining winner
+    const winner = determineWinner(squares);
+    let status;
+    if(winner) {
+        status = `Winner is: ${winner}`;
+    } else {
+        status = `Next Player is: ${( xIsNext ? "X" : "O")}..`
     }
 
   return (
 		<>
+            <div className="status">{status}</div>
 			<div className="board--row">
 				<Square onSquareClick={() => handleClick(0)} value={squares[0]} />
 				<Square onSquareClick={() => handleClick(1)} value={squares[1]} />
@@ -52,6 +62,27 @@ function Board() {
 	);
 
 };
+
+// determine winner function
+function determineWinner(squares) {
+    const winnings = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ]
+    for(let i = 0; i < winnings.length; i++) {
+        const [ a, b, c] = winnings[i];
+        if(squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+            return squares[a];
+        }
+    }
+};
+
 
 // export board
 export default Board;
