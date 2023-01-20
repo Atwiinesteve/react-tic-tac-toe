@@ -1,5 +1,5 @@
 // import react
-import React, { useState } from 'react';
+import React from 'react';
 
 // import styles
 import "../components/Board.css";
