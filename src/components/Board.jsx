@@ -8,11 +8,11 @@ import "../components/Board.css";
 import Square from './Square';
 
 // Board Component
-function Board() {
+function Board({ xIsNext, squares, onPlay }) {
 
     // setting state
-    const [squares, setSquares ] = useState(Array(9).fill(null));
-    const [ xIsNext, setXIsNext ] = useState(true)
+    // const [squares, setSquares ] = useState(Array(9).fill(null));
+    // const [ xIsNext, setXIsNext ] = useState(true)
 
     // updating Board state
     function handleClick(i) {
@@ -25,8 +25,7 @@ function Board() {
         } else {
             nextSqaures[i] = "O";
         }
-        setSquares(nextSqaures);
-        setXIsNext(!xIsNext);
+        onPlay(nextSqaures);
     };
 
     // determining winner
