@@ -51,9 +51,15 @@ ul {
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   font-family: sans-serif;
   margin: 20px;
   padding: 0;
+  overflow: hidden;
 }
 
 .square {
@@ -71,7 +77,7 @@ body {
   width: 34px;
 }
 
-.board-row:after {
+.board--row:after {
   clear: both;
   content: '';
   display: table;
