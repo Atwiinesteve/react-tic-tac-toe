@@ -2,9 +2,19 @@
 import React from 'react';
 
 // square component
-function Square({ value }) {
+function Square({ value, onSquareClick }) {
 
-  return <button className="square">{ value }</button>;
+    // setting state
+//     const [ value, setValue ] = useState(null);
+
+//     // handling events
+//     function handleClick() {
+//         setValue("X");
+//     }
+
+//   return <button className="square" onClick={handleClick}>{ value }</button>;
+
+    return <button className="square" onClick={onSquareClick}>{ value }</button>
 
 };
 
