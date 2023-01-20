@@ -4,12 +4,12 @@ import React from 'react';
 // import styles
 
 // import components
-import Board from './components/Board';
+import Game from './components/Games';
 
 function App() {
   return (
     <div className="game--container">
-      <Board />
+      <Game />
     </div>
   );
 }
